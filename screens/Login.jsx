@@ -1,4 +1,4 @@
-import { View, Button, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput } from "react-native-gesture-handler";
@@ -8,10 +8,16 @@ import { CheckBox } from "react-native-elements";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Link } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/native";
+
 const Login = () => {
   const [password, setPassword] = useState("");
   const [isChcked, setIsChcked] = useState(false);
   const [secureTextEntry, setSecureTextEntry] = useState(true);
+  const [showError, setShowerror] = useState("");
+  const [isShowError, setIsShowerror] = useState(false);
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={{ padding: 24, height: "100%" }}>
       <View style={{ marginBottom: 26 }}>
@@ -65,6 +71,11 @@ const Login = () => {
             </Text>
           </Text>
           <TextInput style={styles.textInput} />
+          {isShowError && (
+            <Text style={{ color: "#C30052", fontSize: 14, fontWeight: "400" }}>
+              {showError}
+            </Text>
+          )}
         </View>
         <View>
           <Text
@@ -115,11 +126,10 @@ const Login = () => {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: 20,
           }}
         >
           <CheckBox
-            title="Remember me"
+            title="Remember Me"
             checked={isChcked}
             onPress={() => setIsChcked(!isChcked)}
             containerStyle={styles.checkboxContainer}
@@ -137,7 +147,21 @@ const Login = () => {
             Forgot the password?
           </Text>
         </View>
-        <Button title="Login" style={{ borderRadius: 26 }} />
+        <TouchableOpacity
+          style={{
+            borderRadius: 6,
+            textTransform: "lowercase",
+            backgroundColor: "#1877F2",
+            height: 50,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Text style={{ color: "rgba(255, 255, 255, 1)" }}>Login</Text>
+        </TouchableOpacity>
+
         <Text
           style={{
             textAlign: "center",
@@ -234,7 +258,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     height: 45,
-    width: 140,
+    width: 160,
     // paddingLeft: -20,
     color: " #4E4B66",
     fontSize: 14,
