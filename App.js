@@ -14,6 +14,7 @@ import Home from "./components/Home";
 import Explore from "./screens/Explore";
 import Bookmark from "./screens/Bookmark";
 import Profile from "./screens/Profile";
+import AllTrending from "./screens/AllTrending";
 
 const Stack = createStackNavigator();
 
@@ -103,6 +104,11 @@ function App() {
         <StackScreen.Screen
           name="Home"
           component={HomeTabs}
+          options={{ headerShown: false }}
+        />
+        <StackScreen.Screen
+          name="AllTrending"
+          component={AllTrending}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

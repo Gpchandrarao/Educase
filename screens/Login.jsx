@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput } from "react-native-gesture-handler";
-import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { CheckBox } from "react-native-elements";
 import { FontAwesome5 } from "@expo/vector-icons";
