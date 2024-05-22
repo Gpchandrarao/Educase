@@ -5,10 +5,10 @@
     "description": "In this app we see tha all Top news ",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/Vector.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/Vector.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,13 +17,24 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/Vector.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.chandug.NewsAppgpoorna"
     },
     "web": {
-      "favicon": "./assets/Vector.png"
+      "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-router"]
+    "plugins": [
+      "expo-router"
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "9a13b143-9d6a-4e31-9c34-4fd5c931beb2"
+      }
+    }
   }
 }
